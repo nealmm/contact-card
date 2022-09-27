@@ -53,6 +53,23 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./service-worker.js');
 })};
 
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    installBtn.style.visibility = 'visible';
+
+    installBtn.addEventListener('click', () => {
+        event.prompt();
+        installBtn.setAttribute('disabled', true);
+        installBtn.textContent = 'Installed!';
+    });
+});
+
+window.addEventListener('appinstalled', (event) => {
+    console.log('👍', 'appinstalled', event);
+});
+
 // Grabs the id from the button element attached to the contact card.
 let id = parseInt(e.id);
 // Delete the card
