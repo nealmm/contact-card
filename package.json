@@ -28,7 +28,6 @@
   "engines": {
     "node": "17.x"
   },
-  "heroku-prebuild": "npm install --dev",
   "devDependencies": {
     "workbox-webpack-plugin": "^6.5.4"
   }
